@@ -7,8 +7,26 @@ class BankAccount {
     this.name = name;
     this.balance = balance;
   }
-  getBalance() {
-    console.log(`My Current balance is: ${this.balance}`);
+  private getTestBalance(): number {
+    return this.balance;
+  }
+
+  get Test(): number {
+    return this.getTestBalance();
+  }
+
+  //   getter
+  get balances(): number {
+    return this.balance;
+  }
+  //   getBalance() {
+  //     console.log(`My Current balance is: ${this.balance}`);
+  //   }
+
+  // setter
+
+  set deposit(ammunt: number) {
+    this.balance = this.balance + ammunt;
   }
   addDeposit(ammunt: number) {
     this.balance = this.balance + ammunt;
@@ -17,5 +35,9 @@ class BankAccount {
 
 const myAccount = new BankAccount(444, "Persian", 20);
 // myAccount.balance = 0;
-myAccount.addDeposit(20);
-myAccount.getBalance();
+// myAccount.addDeposit(20);
+// myAccount.getBalance();
+
+console.log(myAccount.balances);
+myAccount.deposit = 50;
+console.log(myAccount.balances);
